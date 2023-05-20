@@ -210,10 +210,7 @@ class L0 extends Phaser.Scene {
     create() {
         this.add.text(50,50, "Balloon Shooter").setFontSize(50);
         this.add.text(50,100, "Click anywhere to begin.").setFontSize(20);
-        this.input.on('pointerdown', () => {
-            this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('L1'));
-        });
+        this.input.on('pointerdown', () => this.scene.start('L1'));
     }
 }
 
@@ -227,7 +224,7 @@ const config = {
     },
     physics: {
         default: 'arcade',
-        arcade: { debug: true }
+        arcade: { debug: false }
     },
     scene: [L0, L1, S1, L2, S2, L3, S3]
 };
